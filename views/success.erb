@@ -1,0 +1,9 @@
+<h3>All Users</h3>
+<ul>
+<% @users.each do |user| %>
+	<li>
+		<%= user.name %>
+	</li>
+<% end %>
+</ul>
+<a href="/">Back to Home</a>
