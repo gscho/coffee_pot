@@ -2,6 +2,8 @@
 
 * [Install Ruby](http://lmgtfy.com/?q=how+to+install+ruby)
 
-* bundle install
+* run `gem install bundler`
 
-* ruby coffee.rb
+* run `bundle install`
+
+* run `ruby coffee.rb`
