@@ -1,4 +1,5 @@
-# coffee_pot
+# coffee_pot 
+[![Build Status](https://travis-ci.org/gscho/coffee_pot.png)](https://travis-ci.org/gscho/coffee_pot)
 
 * [Install Ruby](http://lmgtfy.com/?q=how+to+install+ruby)
 
