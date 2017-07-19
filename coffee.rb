@@ -11,16 +11,24 @@ get '/signup' do
   erb :signup
 end
 
-post '/new/user' do
+get '/login' do
+  erb :login
+end
+
+post '/user' do
   @user = User.new(params[:user])
   if @user.save
     redirect '/success'
   else
-    "Sorry, there was an error!"
+    status 400
+    body 'Sorry, there was an error!'
   end
 end
 
 get '/success' do
-	@users = User.all
 	erb :success
+end
+
+post '/user/login' do
+  erb :dashboard
 end

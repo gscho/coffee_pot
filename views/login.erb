@@ -14,33 +14,28 @@
   <body>
  
     <div class="container">
+    
       <div class="header">
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" ><a href="/">Home</a></li>
-            <li role="presentation"><a href="/login">Sign In</a></li>
-            <li role="presentation" class="active"><a href="/signup">Sign Up</a></li>
+            <li role="presentation" class="active"><a href="/login">Sign In</a></li>
+            <li role="presentation"><a href="/signup">Sign Up</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Coffee Pot App</h3>
       </div>
- 
+
       <div class="jumbotron">
-        <h1>Create A User</h1>
-        <form class="form-signin" method="post" action='/user''>
-        <label for="inputName" class="sr-only">Name</label>
-        <input type="name" name="user[name]" id="inputName" class="form-control" placeholder="Name" required autofocus>
+        <h1>Log in</h1>
+        <form class="form-signin" method="post" action='/user/login''>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="user[email]" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" name="user[password]" id="inputPassword" class="form-control" placeholder="Password" required>
-         
-        <input id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit" value='Sign Up'/>
+        <input id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit" value='Log In'/>
       </form>
       </div>
- 
-       
- 
       <footer class="footer">
         <p>&copy; Indellient 2017</p>
       </footer>
