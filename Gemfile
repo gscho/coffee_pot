@@ -7,5 +7,5 @@ gem 'pg'
 
 group :test do
   gem 'sqlite3'
-  gem 'rake/test'
+  gem 'rack-test'
 end
