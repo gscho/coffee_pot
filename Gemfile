@@ -7,4 +7,5 @@ gem 'pg'
 
 group :test do
   gem 'sqlite3'
+  gem 'rake/test'
 end
