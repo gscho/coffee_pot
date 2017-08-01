@@ -3,9 +3,13 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'activerecord'
 gem 'sinatra-activerecord'
-gem 'pg'
+gem 'yajl-ruby'
 
-group :test do
+group :production do
+  gem 'pg'
+end
+
+group :test, :development do
   gem 'sqlite3'
   gem 'rack-test'
 end
