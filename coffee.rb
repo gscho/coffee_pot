@@ -5,7 +5,6 @@ require './config/environments'
 require './models/user'
 require './models/device'
 require './models/measurement'
-require './lib/json/device_measurements'
 
 get '/' do
   erb :index
@@ -39,7 +38,7 @@ end
 
 get '/devices' do
   content_type :json
-  @devices = Device.all.includes(:measurements).map(&:measurements).flatten
+  @devices = Device.all
   Yajl::Encoder.encode(@devices)
 end
 
@@ -47,6 +46,19 @@ get '/device/:id' do |id|
   content_type :json
   @device = Device.find(id)
   @measurements = Measurement.where(device_id: @device.id).limit(10)
-  object = DeviceMeasurements.new(@device, Array(@measurements))
-  Yajl::Encoder.encode(object)
+  res = { device: @device, measurements: Array(@measurements) }
+  Yajl::Encoder.encode(res)
+end
+
+post '/device/:id/measurements' do |id|
+  content_type :json
+  res = Yajl::Parser.parse(request.body.read)
+  @measurements = res['measurements'].map{ |e|
+    e['device_id'] = id
+    Measurement.new(e)
+  }
+  Measurement.transaction do
+    @measurements.map(&:save!)
+  end
+  status 202
 end

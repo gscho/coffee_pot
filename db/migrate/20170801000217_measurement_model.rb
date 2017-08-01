@@ -6,6 +6,7 @@ class MeasurementModel < ActiveRecord::Migration[5.1]
       t.belongs_to :device, index: true
       t.timestamps
     end
+
   end
   def down
     drop_table :measurements
