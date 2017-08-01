@@ -1,1 +1,5 @@
-Device.create(name: 'TestDevice')
+device = Device.create(name: 'TestDevice')
+device.measurements.create(key: 'TestKey1', value: 'TestValue1')
+device.measurements.create(key: 'TestKey2', value: 'TestValue2')
+device.measurements.create(key: 'TestKey3', value: 'TestValue3')
+device.measurements.create(key: 'TestKey4', value: 'TestValue4')

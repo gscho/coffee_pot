@@ -14,12 +14,25 @@ ActiveRecord::Schema.define(version: 20170801000217) do
 
   create_table "devices", force: :cascade do |t|
     t.string "name", limit: 45
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "measurements", force: :cascade do |t|
+    t.string "key", limit: 45
+    t.string "value", limit: 45
+    t.integer "device_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_measurements_on_device_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name", limit: 45
     t.string "email", limit: 45
     t.string "password", limit: 45
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
