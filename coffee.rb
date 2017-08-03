@@ -1,7 +1,23 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+require 'dotenv/load'
 require './config/environments' #database configuration
 require './models/user'        #User class
+require 'slack-ruby-bot'
+require './slack-coffeebot/bot'
+require './slack-coffeebot/commands/getStatus'
+
+
+Thread.new do
+  begin
+    SlackCoffeeBot::Bot.run
+  rescue Exception => e
+    STDERR.puts "ERROR: #{e}"
+    STDERR.puts e.backtrace
+    raise e
+  end
+end
+
 
 get '/' do
   erb :index
