@@ -1,0 +1,1 @@
+Device.create(name: 'TestDevice')

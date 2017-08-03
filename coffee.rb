@@ -1,8 +1,14 @@
 require 'sinatra'
 require 'sinatra/activerecord'
+<<<<<<< HEAD
 require 'dotenv/load'
 require './config/environments' #database configuration
 require './models/user'        #User class
+require 'yajl'
+require './config/environments'
+require './models/user'
+require './models/device'
+require './models/measurement'
 require 'slack-ruby-bot'
 require './slack-coffeebot/bot'
 require './slack-coffeebot/commands/getStatus'
@@ -47,4 +53,16 @@ end
 
 post '/user/login' do
   erb :dashboard
+end
+
+get '/devices' do
+  content_type :json
+  @devices = Device.all
+  Yajl::Encoder.encode(@devices)
+end
+
+get '/device/:id' do
+  content_type :json
+  @device = Device.find_by(:id, params[:id])
+  Yajl::Encoder.encode(@device)
 end
