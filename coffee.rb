@@ -8,8 +8,8 @@ require './models/user'
 require './models/device'
 require './models/measurement'
 require 'slack-ruby-bot'
-require './lib/slack-coffeebot/bot'
-require './lib/slack-coffeebot/commands/get_status'
+require './lib/slack_coffeebot/bot'
+require './lib/slack_coffeebot/commands/get_status'
 
 
 Thread.new do
