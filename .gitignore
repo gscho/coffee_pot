@@ -10,7 +10,7 @@
 /test/version_tmp/
 /tmp/
 .project
-*.sqllite3
+./db/development.sqlite3
 # mac
 .DS_Store
 
