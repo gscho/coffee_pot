@@ -23,13 +23,4 @@ class CoffeeTest < MiniTest::Unit::TestCase
     assert last_response.ok?
   end
 
-  def test_login
-    get '/login'
-    assert last_response.ok?
-  end
-
-  def test_post_user_error
-    post '/user', 'name' => 'Tester', 'email' => 'test@email.com', 'password' => 'test1234'
-    assert_equal 302, last_response.status
-  end
 end

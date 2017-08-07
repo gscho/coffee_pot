@@ -4,13 +4,12 @@ require 'dotenv/load'
 require './config/environments' #database configuration
 require './models/user'        #User class
 require 'yajl'
-require './config/environments'
 require './models/user'
 require './models/device'
 require './models/measurement'
 require 'slack-ruby-bot'
-require './slack-coffeebot/bot'
-require './slack-coffeebot/commands/getStatus'
+require './lib/slack-coffeebot/bot'
+require './lib/slack-coffeebot/commands/get_status'
 
 
 Thread.new do
@@ -22,7 +21,6 @@ Thread.new do
     raise e
   end
 end
-
 
 get '/' do
   erb :index

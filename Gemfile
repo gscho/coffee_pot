@@ -7,6 +7,7 @@ gem 'slack-ruby-bot'
 gem 'faye-websocket'
 gem 'dotenv'
 gem 'yajl-ruby'
+gem 'rake'
 
 group :production do
   gem 'pg'
