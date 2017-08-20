@@ -13,14 +13,4 @@ class CoffeeTest < MiniTest::Unit::TestCase
     assert last_response.ok?
   end
 
-  def test_signup
-    get '/signup'
-    assert last_response.ok?
-  end
-
-  def test_login
-    get '/login'
-    assert last_response.ok?
-  end
-
 end
