@@ -9,9 +9,9 @@ gem 'dotenv'
 gem 'yajl-ruby'
 gem 'rake'
 
-group :production do
-  gem 'pg'
-end
+# group :production do
+#   gem 'pg'
+# end
 
 group :test, :development do
   gem 'sqlite3'
