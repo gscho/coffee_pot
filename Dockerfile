@@ -13,6 +13,6 @@ RUN bundle install
 
 COPY . $APP_HOME
 
-ENV PORT 4567
-EXPOSE 4567
+ENV PORT 9292
+EXPOSE 9292
 CMD ["ruby", "coffee.rb"]
