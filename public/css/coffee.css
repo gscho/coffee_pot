@@ -1,0 +1,19 @@
+.navbar-custom {
+  background-color: #5076b1;
+  min-height: 125px;
+}
+.navbar-center {
+  color:white;
+  display: inline-block;
+  float: none;
+}
+
+.container {
+  text-align: center;
+  width:100%;
+}
+
+.dashboard {
+  min-height: 823.558px;
+  min-width: 1427px;
+}
