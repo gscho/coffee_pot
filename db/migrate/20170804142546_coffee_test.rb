@@ -3,8 +3,8 @@ class CoffeeTest < ActiveRecord::Migration[5.1]
     create_table :coffee_test do |t|
       t.timestamps
       t.string :weekday, :limit => 45
-	  t.float :volatage, :limit => 20
-	  t.float :weight, :limit => 20
+	    t.float :volatage, :limit => 20
+	    t.float :weight, :limit => 20
     end
   end
   def down

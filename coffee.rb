@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'dotenv/load'
-require './config/environments'
 require 'yajl'
 require './models/device'
 require './models/measurement'
@@ -9,7 +8,11 @@ require 'slack-ruby-bot'
 require './lib/slack-coffeebot/bot'
 require './lib/slack-coffeebot/commands/get_status'
 
+set :database_file, 'config/database.yml'
+
 get '/' do
+  puts ENV.inspect
+  puts :database_file.inspect
   erb :dashboard
 end
 

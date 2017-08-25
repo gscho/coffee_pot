@@ -11,6 +11,7 @@
 /tmp/
 .project
 ./db/development.sqlite3
+/pgdata
 # mac
 .DS_Store
 

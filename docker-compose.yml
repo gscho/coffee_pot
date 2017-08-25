@@ -1,0 +1,27 @@
+version: '3'
+services:
+  db:
+    image: postgres:9.6-alpine
+    environment:
+        POSTGRES_USER: postgres
+        # POSTGRES_PASSWORD: password
+        PGDATA : /var/lib/postgresql/data/pgdata
+    ports:
+      - "5432:5432"
+    tty: true
+    volumes:
+    - ./pgdata:/var/lib/postgresql/data/pgdata
+
+  web:
+    build: .
+    command: ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]
+    ports:
+      - "4567:4567"
+    links:
+      - db
+    # volumes:
+    #   - .:/app
+
+# volumes:
+#   pgdata:
+#     external: true

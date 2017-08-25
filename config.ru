@@ -2,6 +2,11 @@ $LOAD_PATH.push File.expand_path("./lib", __FILE__)
 
 require "./coffee"
 
+require 'dotenv'
+Dotenv.load
+
+Thread.abort_on_exception = true
+
 Thread.new do
   begin
     SlackCoffeeBot::Bot.run
