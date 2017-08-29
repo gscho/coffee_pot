@@ -10,11 +10,14 @@ services:
       - "5432:5432"
     tty: true
     volumes:
-    - ./pgdata:/var/lib/postgresql/data/pgdata
+    - /etc/pgdata:/var/lib/postgresql/data/pgdata
 
   web:
     build: .
     command: ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]
+    environment:
+      SLACK_API_TOKEN: xoxb-230328577364-yzG9ThYPDS7PwW7UolcETk4l
+      RACK_ENV: production
     ports:
       - "4567:4567"
     links:

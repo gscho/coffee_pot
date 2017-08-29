@@ -10,19 +10,30 @@ require './lib/slack-coffeebot/commands/get_status'
 
 set :database_file, 'config/database.yml'
 
+helpers do
+  def authenticate(token)
+    ENV['SLACK_API_TOKEN'].eql? token
+  end
+end
+
+before '/api/*' do
+  token = request.env["HTTP_TOKEN"]
+  if authenticate(token).eql? false
+    halt 401, 'Unable to authenticate!'
+  end
+end
+
 get '/' do
-  puts ENV.inspect
-  puts :database_file.inspect
   erb :dashboard
 end
 
-get '/devices' do
+get '/api/devices' do
   content_type :json
   @devices = Device.all
   Yajl::Encoder.encode(@devices)
 end
 
-get '/device/:id' do |id|
+get '/api/device/:id' do |id|
   content_type :json
   @device = Device.find(id)
   @measurements = Measurement.where(device_id: @device.id).limit(10)
@@ -30,7 +41,7 @@ get '/device/:id' do |id|
   Yajl::Encoder.encode(res)
 end
 
-post '/device/:id/measurements' do |id|
+post '/api/device/:id/measurements' do |id|
   content_type :json
   res = Yajl::Parser.parse(request.body.read)
   @measurements = res['measurements'].map{ |e|

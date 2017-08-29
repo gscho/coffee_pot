@@ -15,4 +15,5 @@ COPY . $APP_HOME
 
 ENV PORT 4567
 EXPOSE 4567
+ENTRYPOINT ["bin/migrate.sh"]
 CMD ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]

@@ -1,8 +1,11 @@
 .git
 .gitignore
 Dockerfile
+.dockerignore
 docker-compose.yml
+.DS_Store
 .travis.yml
 .env
-.*sqlite3
-pgdata
+db/development.sqlite3
+db/test.sqlite3
+db/.DS_Store
