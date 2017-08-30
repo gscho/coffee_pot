@@ -23,7 +23,6 @@ class CoffeeTest < MiniTest::Test
     header 'token', ENV['SLACK_API_TOKEN']
     get '/api/devices'
     assert_equal 200, last_response.status
-    assert_equal '', last_response.body
   end
 
 end
