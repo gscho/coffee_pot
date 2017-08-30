@@ -1,4 +1,6 @@
 language: ruby
 rvm:
   - 2.2.6
+env:
+  - SLACK_API_TOKEN=foo
 script: bundle exec rake test
