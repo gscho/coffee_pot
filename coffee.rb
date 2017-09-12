@@ -5,10 +5,15 @@ require 'yajl'
 require './models/device'
 require './models/measurement'
 require 'slack-ruby-bot'
-require './lib/slack-coffeebot/bot'
-require './lib/slack-coffeebot/commands/get_status'
+require 'slack-ruby-client'
+require './lib/slack-coffeebot/coffeebot'
+require './lib/slack-coffeebot/commands/coffee_bot_commands'
 
 set :database_file, 'config/database.yml'
+
+# client = Slack::Web::Client.new
+# client.auth_test
+# client.chat_postMessage(channel: '#test_coffee', text: 'coffeebot online!', as_user: true)
 
 helpers do
   def authenticate(token)
