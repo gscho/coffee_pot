@@ -21,9 +21,3 @@ services:
       - "4567:4567"
     links:
       - db
-    # volumes:
-    #   - .:/app
-
-# volumes:
-#   pgdata:
-#     external: true
