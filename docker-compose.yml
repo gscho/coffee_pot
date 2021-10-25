@@ -11,7 +11,7 @@ services:
     tty: true
     volumes:
     - ./pgdata:/var/lib/postgresql/data/pgdata
-
+lol
   web:
     build: .
     command: ["bundle", "exec", "rackup", "--host", "0.0.0.0", "-p", "4567"]
